@@ -1,0 +1,1447 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Brigid Chepkemoi | Software Developer &amp; Student Leader</title>
+<meta content="Personal developer portfolio of Brigid Chepkemoi — IT student at Kisii University, software developer, and student leader from Bomet County, Kenya. Solving everyday problems through clean digital solutions." name="description">
+<!-- Google Fonts: Playfair Display (Headings) & Poppins (Body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME ("Blush & Sage")
+       ========================================================================== */
+    :root {
+      --bg: #FFF8F5;              /* Ivory background */
+      --bg-soft: #F8E1E7;         /* Blush */
+      --primary: #D98BA3;         /* Dusty rose, buttons and links */
+      --primary-hover: #c4758d;   /* Darker rose for interactive states */
+      --secondary: #A8C3A0;       /* Sage green, skill tags & WhatsApp */
+      --secondary-hover: #93b28b; /* Darker sage for hover */
+      --highlight: #E8C99B;       /* Champagne gold, small accents */
+      --lavender: #BFA8DD;        /* Lavender borders & alternating tags */
+      --lavender-soft: #EEE7F8;   /* Soft lavender tint */
+      --yellow: #F6CF57;          /* Decorative frame accent */
+      --heading: #4A2C3F;         /* Deep plum */
+      --text: #3D3340;            /* Soft charcoal */
+      --card-bg: #FFFFFF;         /* Crisp card surface */
+      --shadow-rose: 0 14px 34px -10px rgba(217, 139, 163, 0.28);
+      --shadow-soft: 0 8px 24px -6px rgba(74, 44, 63, 0.08);
+      --radius-pill: 9999px;
+      --radius-card: 22px;
+      --frame-width: 10px;
+      --nav-height: 74px;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      font-weight: 400;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Fixed decorative framing margin (10px desktop, 6px mobile) */
+    .page-frame-border {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: var(--frame-width) solid var(--yellow);
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Accessible focus state */
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--heading);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: clamp(1.25rem, 5vw, 2.5rem);
+      padding-right: clamp(1.25rem, 5vw, 2.5rem);
+    }
+
+    .section {
+      padding: clamp(4.5rem, 8vw, 6.5rem) 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--bg-soft);
+      padding: 0.35rem 1rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 0.85rem;
+      border: 1px solid rgba(217, 139, 163, 0.3);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.8vw, 2.85rem);
+      color: var(--heading);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: rgba(61, 51, 64, 0.85);
+    }
+
+    /* Tasteful single entrance animation for content */
+    @keyframes subtleReveal {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-animate {
+      animation: subtleReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .hero-animate {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 248, 245, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(191, 168, 221, 0.35);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+    }
+
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--heading);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-logo span.dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--heading);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 0.4rem 0.2rem;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--lavender);
+      border-radius: 10px;
+      padding: 0.45rem 0.65rem;
+      cursor: pointer;
+      color: var(--heading);
+    }
+
+    .mobile-menu-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+    }
+
+    /* ==========================================================================
+       BUTTONS & BADGES
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.82rem 1.75rem;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(217, 139, 163, 0.4);
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(217, 139, 163, 0.5);
+    }
+
+    .btn-whatsapp {
+      background: var(--secondary);
+      color: #274024;
+      box-shadow: 0 4px 16px rgba(168, 195, 160, 0.45);
+    }
+    .btn-whatsapp:hover {
+      background: var(--secondary-hover);
+      color: #172915;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(168, 195, 160, 0.55);
+    }
+
+    .btn-outline {
+      background: #FFFFFF;
+      color: var(--heading);
+      border: 1.5px solid var(--lavender);
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--lavender-soft);
+      transform: translateY(-2px);
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding: clamp(3.5rem, 7vw, 6.5rem) 0;
+      background: radial-gradient(circle at 80% 20%, var(--lavender-soft) 0%, transparent 55%),
+                  radial-gradient(circle at 15% 70%, var(--bg-soft) 0%, transparent 60%);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    .hero-content {
+      order: 1;
+    }
+
+    .hero-photo-wrapper {
+      order: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .badge-subtle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--lavender);
+      color: var(--heading);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.35rem 0.95rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .badge-subtle .status-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(168, 195, 160, 0.45);
+    }
+
+    .hero-name {
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      color: var(--heading);
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-title-role {
+      font-family: var(--font-body);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-statement {
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 2rem;
+      max-width: 580px;
+    }
+
+    .hero-statement strong {
+      color: var(--heading);
+      font-weight: 600;
+    }
+
+    /* Soft rounded frame for Profile Photo */
+    .photo-frame-container {
+      position: relative;
+      width: min(100%, 340px);
+      aspect-ratio: 1 / 1;
+      padding: 10px;
+      border-radius: 36px;
+      background: linear-gradient(135deg, var(--lavender) 0%, var(--primary) 50%, var(--highlight) 100%);
+      box-shadow: var(--shadow-rose);
+      transition: transform 0.35s ease;
+    }
+
+    .photo-frame-container:hover {
+      transform: translateY(-4px);
+    }
+
+    .photo-frame-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      border: 5px solid #FFFFFF;
+      overflow: hidden;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .photo-frame-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Clean illustration placeholder if user swaps the image */
+    .avatar-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--heading);
+      background: linear-gradient(145deg, #FFF3F6, var(--lavender-soft));
+      width: 100%;
+      height: 100%;
+    }
+
+    .avatar-placeholder svg {
+      width: 72px;
+      height: 72px;
+      fill: var(--primary);
+      margin-bottom: 0.75rem;
+      opacity: 0.9;
+    }
+
+    .avatar-placeholder span.placeholder-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--heading);
+    }
+
+    /* ==========================================================================
+       ABOUT ME SECTION
+       ========================================================================== */
+    .about-cards-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.85rem;
+      margin-top: 1rem;
+    }
+
+    .about-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(191, 168, 221, 0.4);
+      border-radius: var(--radius-card);
+      padding: 2.2rem 2rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .about-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-rose);
+      border-color: var(--primary);
+    }
+
+    .about-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--lavender-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.4rem;
+      color: var(--heading);
+    }
+
+    .about-card:nth-child(2) .about-card-icon {
+      background: #EAF4E8;
+      color: #385E32;
+    }
+
+    .about-card:nth-child(3) .about-card-icon {
+      background: #FFF0E4;
+      color: #8C5320;
+    }
+
+    .about-card-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .about-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.85rem;
+      color: var(--heading);
+    }
+
+    .about-card p {
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* Quote callout */
+    .quote-badge {
+      display: block;
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: var(--bg);
+      border-left: 3px solid var(--highlight);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--heading);
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* ==========================================================================
+       MY JOURNEY (TIMELINE)
+       ========================================================================== */
+    .journey-timeline {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+      padding-left: 2rem;
+    }
+
+    .journey-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 8px;
+      width: 3px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--lavender) 50%, var(--secondary) 100%);
+      border-radius: 3px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.75rem;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2rem;
+      top: 4px;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 0 3px rgba(217, 139, 163, 0.25);
+    }
+
+    .timeline-item:nth-child(2) .timeline-dot {
+      border-color: var(--lavender);
+      box-shadow: 0 0 0 3px rgba(191, 168, 221, 0.35);
+    }
+    .timeline-item:nth-child(3) .timeline-dot {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(168, 195, 160, 0.35);
+    }
+    .timeline-item:nth-child(4) .timeline-dot {
+      border-color: var(--highlight);
+      box-shadow: 0 0 0 3px rgba(232, 201, 155, 0.4);
+    }
+
+    .timeline-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(191, 168, 221, 0.35);
+      border-radius: 18px;
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateX(4px);
+      border-color: var(--primary);
+    }
+
+    .timeline-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-pill);
+      background: var(--lavender-soft);
+      color: var(--heading);
+    }
+
+    .timeline-date {
+      font-size: 0.86rem;
+      color: rgba(61, 51, 64, 0.7);
+      font-weight: 500;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--heading);
+    }
+
+    .timeline-card p {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* ==========================================================================
+       SKILLS SECTION
+       ========================================================================== */
+    .skills-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid rgba(191, 168, 221, 0.4);
+      border-radius: var(--radius-card);
+      padding: clamp(2rem, 5vw, 3rem);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .skills-instruction-note {
+      font-size: 0.85rem;
+      color: rgba(61, 51, 64, 0.65);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.9rem;
+    }
+
+    /* Alternating pill tags: sage green, soft lavender, blush, champagne */
+    .skill-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .skill-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(74, 44, 63, 0.08);
+    }
+
+    .skill-sage {
+      background: #EAF4E8;
+      color: #2D4C27;
+      border-color: rgba(168, 195, 160, 0.6);
+    }
+
+    .skill-lavender {
+      background: var(--lavender-soft);
+      color: #432E60;
+      border-color: rgba(191, 168, 221, 0.6);
+    }
+
+    .skill-blush {
+      background: var(--bg-soft);
+      color: #632C3E;
+      border-color: rgba(217, 139, 163, 0.5);
+    }
+
+    .skill-gold {
+      background: #FFF5E7;
+      color: #6E4915;
+      border-color: rgba(232, 201, 155, 0.7);
+    }
+
+    .skill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.7;
+    }
+
+    /* ==========================================================================
+       PROJECTS SECTION
+       ========================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.25rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1.5px solid rgba(191, 168, 221, 0.45);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-rose);
+      border-color: var(--primary);
+    }
+
+    .project-card-header {
+      background: linear-gradient(135deg, var(--bg-soft) 0%, var(--lavender-soft) 100%);
+      padding: 2.2rem 2rem 1.8rem;
+      border-bottom: 1px solid rgba(191, 168, 221, 0.3);
+      position: relative;
+    }
+
+    .project-card-header::after {
+      content: '';
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .project-category {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .project-card-header h3 {
+      font-size: 1.55rem;
+      color: var(--heading);
+    }
+
+    .project-card-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .project-description {
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-highlights {
+      list-style: none;
+      margin-bottom: 1.75rem;
+      padding: 0;
+    }
+
+    .project-highlights li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--heading);
+      margin-bottom: 0.45rem;
+    }
+
+    .project-highlights li svg {
+      width: 15px;
+      height: 15px;
+      fill: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .project-actions {
+      margin-top: auto;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(191, 168, 221, 0.25);
+    }
+
+    /* ==========================================================================
+       CONTACT SECTION
+       ========================================================================== */
+    .contact-section {
+      background: radial-gradient(circle at 50% 30%, var(--bg-soft) 0%, var(--lavender-soft) 55%, var(--bg) 100%);
+      border-top: 1px solid rgba(191, 168, 221, 0.4);
+    }
+
+    .contact-card {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 2px solid var(--lavender);
+      border-radius: 28px;
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3rem);
+      text-align: center;
+      box-shadow: var(--shadow-rose);
+      position: relative;
+    }
+
+    .contact-card h2 {
+      font-size: clamp(2.1rem, 4vw, 2.75rem);
+      color: var(--heading);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-intro {
+      font-size: 1.08rem;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      color: var(--text);
+    }
+
+    .direct-phone-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg);
+      border: 1.5px dashed var(--primary);
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-pill);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 2.25rem;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .direct-phone-box:hover {
+      background: var(--bg-soft);
+      border-color: var(--heading);
+    }
+
+    .contact-buttons-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: var(--bg);
+      border-top: 2px solid var(--lavender);
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.92rem;
+      color: rgba(61, 51, 64, 0.75);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .footer-quote {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--heading);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS (Mobile-First Polish)
+       ========================================================================== */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+      }
+
+      .hero-content {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-photo-wrapper {
+        order: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .button-group {
+        justify-content: center;
+      }
+
+      .hero-statement {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --frame-width: 6px; /* 6px margin frame on mobile devices */
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 2px solid var(--lavender);
+        flex-direction: column;
+        padding: 1.5rem 0;
+        gap: 1.25rem;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .journey-timeline {
+        padding-left: 1.5rem;
+      }
+      .timeline-dot {
+        left: -1.5rem;
+        width: 16px;
+        height: 16px;
+      }
+
+      .contact-buttons-row {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .contact-buttons-row .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Fixed Frame Margin (10px desktop, 6px mobile) -->
+<div aria-hidden="true" class="page-frame-border"></div>
+<!-- ==========================================================================
+       1. STICKY NAVIGATION BAR
+       ========================================================================== -->
+<header class="site-nav">
+<div class="container">
+<div class="nav-inner">
+<a aria-label="Brigid Chepkemoi Homepage" class="brand-logo" href="#hero">
+          Brigid Chepkemoi<span class="dot"></span>
+</a>
+<!-- Mobile Navigation Toggle -->
+<button aria-expanded="false" aria-label="Toggle Navigation Menu" class="mobile-menu-btn" id="mobileMenuBtn">
+<svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+<line x1="3" x2="21" y1="12" y2="12"></line>
+<line x1="3" x2="21" y1="6" y2="6"></line>
+<line x1="3" x2="21" y1="18" y2="18"></line>
+</svg>
+</button>
+<nav>
+<ul class="nav-links" id="navLinks">
+<li class=""><a class="nav-link-item" href="#about">About</a></li>
+<li class=""><a class="nav-link-item" href="#journey">Journey</a></li>
+<li class=""><a class="nav-link-item" href="#skills">Skills</a></li>
+<li class=""><a class="nav-link-item" href="#projects">Projects</a></li>
+<li class=""><a class="nav-link-item" href="#contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</header>
+<main>
+<!-- ==========================================================================
+         2. HERO SECTION
+         ========================================================================== -->
+<section class="section hero-section hero-animate" id="hero">
+<div class="container">
+<div class="hero-grid">
+<!-- Hero Text Content -->
+<div class="hero-content">
+<div class="badge-subtle">
+<span class="status-pulse"></span>
+              Available for Internships &amp; Entry-Level Roles
+            </div>
+<h1 class="hero-name">Brigid Chepkemoi</h1>
+<p class="hero-title-role">Software Developer · Problem Solver · Student Leader</p>
+<p class="hero-statement">
+<strong>"I turn everyday problems into simple, useful digital solutions."</strong> Crafting intuitive student software and community-focused web applications with clean, resilient code.
+            </p>
+<div class="button-group">
+<a aria-label="Chat with Brigid on WhatsApp" class="btn btn-whatsapp" href="https://wa.me/254757553698?text=Hello%20Brigid%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect" rel="noopener noreferrer" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
+</svg>
+                Chat on WhatsApp
+              </a>
+<a aria-label="Call Brigid Chepkemoi" class="btn btn-primary" href="tel:+254757553698">
+<svg viewBox="0 0 24 24">
+<path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
+</svg>
+                Call me
+              </a>
+</div>
+</div>
+<!-- Hero Profile Photo with Soft Rounded Frame, White Border & Lavender Ring -->
+<div class="hero-photo-wrapper">
+<div class="photo-frame-container" title="Brigid Chepkemoi">
+<div class="photo-frame-inner">
+<!-- 
+                  PHOTO REPLACEMENT NOTE:
+                  To add your own picture, replace the <img> src below with your photo path (e.g. src="images/brigid.jpg")
+                -->
+<img alt="Brigid Chepkemoi smiling in professional attire" loading="eager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnFTiG_bjjFZZWyBQqvIv2zcDtOgFqBV4uWypGPX-ICJw7-e87qPAMYLtniG1mRLDGZcARhOUaV2Wnab6YEwest31_DFEP88I_FxgoXBZhgoPo5853CE8yR2BY4DIzRIrdSBn-Ws60Q25iATyls0-i1VoK-wR6YKKGlci7igIp1JcPXVQkcyqHw2moXw7NtOOYFOFyS3ZKU8ZtboGWKfK9AkShyX2-2j7iFR3LvGo_yk48PdF3PDus" class="">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==========================================================================
+         3. ABOUT ME SECTION
+         ========================================================================== -->
+<section class="section" id="about">
+<div class="container">
+<div class="section-header">
+<span class="section-eyebrow">Background &amp; Mindset</span>
+<h2 class="section-title">About Me</h2>
+<p class="section-subtitle">Bridging technical precision with community leadership from Kenya to the global tech ecosystem.</p>
+</div>
+<div class="about-cards-wrap">
+<!-- Paragraph 1: What I do & academic focus -->
+<div class="about-card">
+<div class="about-card-icon">
+<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"></path></svg>
+</div>
+<h3 class="">Software &amp; Practical Solutions</h3>
+<p class="">
+              I am an Information Technology student at <strong>Kisii University</strong> and an ambitious software developer originally from Sotik, Bomet County. My craft centers on building web applications that address real friction points in everyday life, transforming tedious tasks into smooth, dependable digital experiences that people genuinely enjoy using.
+            </p>
+</div>
+<!-- Paragraph 2: Community & leadership -->
+<div class="about-card">
+<div class="about-card-icon">
+<svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+</div>
+<h3 class="">Leadership &amp; Community</h3>
+<p class="">
+              Beyond solo programming, I thrive in collaborative spaces. Through continuous engagement in tech events, hackathons, DevDays, and active involvement with the <strong>Google Developer Groups on Campus</strong>, I champion student leadership. I believe the strongest software emerges when we build open doors, mentor peers, and learn together as a community.
+            </p>
+</div>
+<!-- Paragraph 3: Hiking philosophy -->
+<div class="about-card">
+<div class="about-card-icon">
+<svg viewBox="0 0 24 24"><path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"></path></svg>
+</div>
+<h3 class="">The Hiking Philosophy</h3>
+<p class="">
+              When I step away from code, you will find me outdoors hiking scenic trails with my loved one. Trail climbing teaches endurance, deliberate pacing, and respect for terrain — values I bring directly into engineering: 
+              <span class="quote-badge">"One step at a time, always aiming higher."</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ==========================================================================
+         4. MY JOURNEY SECTION
+         ========================================================================== -->
+<section class="section" id="journey" style="background-color: rgba(248, 225, 231, 0.25);">
+<div class="container">
+<div class="section-header">
+<span class="section-eyebrow">Milestones</span>
+<h2 class="section-title">My Journey</h2>
+<p class="section-subtitle">The educational foundations and community chapters that shape my perspective.</p>
+</div>
+<div class="journey-timeline">
+<!-- Step 1: Kisii University -->
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-card">
+<div class="timeline-meta">
+<span class="timeline-tag">Undergraduate</span>
+<span class="timeline-date">2023 – Present</span>
+</div>
+<h3 class="">Kisii University — Bachelor of Science in IT</h3>
+<p class="">
+                Deepening knowledge in software engineering, database architectures, network systems, and algorithmic problem-solving. Active contributor to campus tech hubs and peer study circles.
+              </p>
+</div>
+</div>
+<!-- Step 2: Tech Communities & Hackathons -->
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-card">
+<div class="timeline-meta">
+<span class="timeline-tag">Engagement</span>
+<span class="timeline-date">Ongoing</span>
+</div>
+<h3 class="">Tech Events, Hackathons &amp; DevDays</h3>
+<p class="">
+                Regular participant in fast-paced software hackathons and engineering conferences across Kenya. Collaborating under tight deadlines to prototype viable minimum viable products (MVPs).
+              </p>
+</div>
+</div>
+<!-- Step 3: Google Developers Club & Leadership -->
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-card">
+<div class="timeline-meta">
+<span class="timeline-tag">Leadership</span>
+<span class="timeline-date">Active Contributor</span>
+</div>
+<h3 class="">Google Developer Groups on Campus &amp; Student Voice</h3>
+<p class="">
+                Co-organizing technical peer sessions, sharing developer tools, and advocating for inclusive participation of young women in STEM and software development.
+              </p>
+</div>
+</div>
+<!-- Step 4: High School in Sotik -->
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-card">
+<div class="timeline-meta">
+<span class="timeline-tag">Foundation</span>
+<span class="timeline-date">Completed in 2022</span>
+</div>
+<h3 class="">Morit Secondary School (Sotik, Bomet County)</h3>
+<p class="">
+                Graduated with distinction in sciences and mathematics, cultivating the curiosity, grit, and discipline that sparked my passion for modern computing and software development.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==========================================================================
+         5. SKILLS SECTION
+         ========================================================================== -->
+<section class="section" id="skills">
+<div class="container">
+<div class="section-header">
+<span class="section-eyebrow">Toolbox</span>
+<h2 class="section-title">Skills &amp; Strengths</h2>
+<p class="section-subtitle">Balanced competencies spanning front-end craftsmanship, core logic, and leadership.</p>
+</div>
+<div class="skills-wrapper">
+<p class="skills-instruction-note">
+<!-- COMMENT: You can easily add or edit skill tags below to match your evolving expertise -->
+            Curated toolkit for building responsive, reliable applications and driving high-functioning teams:
+          </p>
+<div class="skills-grid">
+<!-- Technical skills with alternating soft palette -->
+<span class="skill-pill skill-sage">
+<span class="skill-dot"></span>
+              HTML &amp; CSS
+            </span>
+<span class="skill-pill skill-blush">
+<span class="skill-dot"></span>
+              JavaScript
+            </span>
+<span class="skill-pill skill-lavender">
+<span class="skill-dot"></span>
+              Python
+            </span>
+<span class="skill-pill skill-gold">
+<span class="skill-dot"></span>
+              Git &amp; GitHub
+            </span>
+<span class="skill-pill skill-sage">
+<span class="skill-dot"></span>
+              Problem Solving
+            </span>
+<span class="skill-pill skill-lavender">
+<span class="skill-dot"></span>
+              Teamwork
+            </span>
+<span class="skill-pill skill-blush">
+<span class="skill-dot"></span>
+              Student Leadership
+            </span>
+<span class="skill-pill skill-gold">
+<span class="skill-dot"></span>
+              Responsive Web Design
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- ==========================================================================
+         6. PROJECTS SECTION
+         ========================================================================== -->
+<section class="section" id="projects" style="background-color: rgba(238, 231, 248, 0.3);">
+<div class="container">
+<div class="section-header">
+<span class="section-eyebrow">Portfolio</span>
+<h2 class="section-title">Featured Projects</h2>
+<p class="section-subtitle">Applied software created to empower university comrades in their daily academic journeys.</p>
+</div>
+<div class="projects-grid">
+<!-- Project 1: Brigid Resource Hub -->
+<article class="project-card">
+<div class="project-card-header">
+<span class="project-category">Collaborative Platform</span>
+<h3 class="">Brigid Resource Hub</h3>
+</div>
+<div class="project-card-body">
+<div>
+<p class="project-description">
+                  A centralized academic exchange portal engineered for university students. Comrades can easily discover, browse, and download structured revision materials, or contribute their own notes to foster mutual academic success.
+                </p>
+<ul class="project-highlights">
+<li class="">
+<svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                    Frictionless peer-to-peer note uploading &amp; verification
+                  </li>
+<li class="">
+<svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                    Organized by course unit, year of study, and semester
+                  </li>
+<li class="">
+<svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                    Lightweight, responsive UI designed for low-bandwidth phones
+                  </li>
+</ul>
+</div>
+<div class="project-actions">
+<a aria-label="View Brigid Resource Hub project" class="btn btn-outline" href="#" style="width: 100%;">
+                  View project
+                  <svg style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 2: Kemb Quiz Generator -->
+<article class="project-card">
+<div class="project-card-header">
+<span class="project-category">EdTech Revision Tool</span>
+<h3 class="">Kemb Quiz Generator</h3>
+</div>
+<div class="project-card-body">
+<div>
+<p class="project-description">
+                  An automated study assistant that streamlines exam preparation. Students upload PDF lecture handouts, and the application parses the key concepts to automatically generate comprehensive practice questions for accelerated revision.
+                </p>
+<ul class="project-highlights">
+<li class="">
+<svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                    Document parsing to extract core concepts &amp; formulas
+                  </li>
+<li class="">
+<svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                    Interactive quiz mode with instant answer validation
+                  </li>
+<li class="">
+<svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                    Helps students test recall speed prior to semester exams
+                  </li>
+</ul>
+</div>
+<div class="project-actions">
+<a aria-label="View Kemb Quiz Generator project" class="btn btn-outline" href="#" style="width: 100%;">
+                  View project
+                  <svg style="width: 16px; height: 16px;" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- ==========================================================================
+         7. CONTACT SECTION
+         ========================================================================== -->
+<section class="section contact-section" id="contact">
+<div class="container">
+<div class="contact-card">
+<span class="section-eyebrow">Get In Touch</span>
+<h2 class="">Let's build something together</h2>
+<p class="contact-intro">
+            Whether you have an internship opportunity, an entry-level opening, a collaborative project idea, or simply want to talk tech and community leadership — my inbox and phone are always open.
+          </p>
+<!-- Explicit Direct Phone Number -->
+<div>
+<a aria-label="Call +254 757 553 698" class="direct-phone-box" href="tel:+254757553698">
+<svg style="width: 20px; height: 20px; fill: var(--primary);" viewBox="0 0 24 24">
+<path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
+</svg>
+              +254 757 553 698
+            </a>
+</div>
+<!-- Dual Contact Buttons -->
+<div class="contact-buttons-row">
+<a aria-label="Start WhatsApp conversation" class="btn btn-whatsapp" href="https://wa.me/254757553698?text=Hello%20Brigid%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect" rel="noopener noreferrer" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
+</svg>
+              Chat on WhatsApp
+            </a>
+<a aria-label="Call Brigid Chepkemoi now" class="btn btn-primary" href="tel:+254757553698">
+<svg viewBox="0 0 24 24">
+<path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
+</svg>
+              Call me
+            </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ==========================================================================
+       8. FOOTER
+       ========================================================================== -->
+<footer class="site-footer">
+<div class="container">
+<div class="footer-content">
+<p class="footer-quote">"One step at a time, always aiming higher."</p>
+<p class="">© <span id="currentYear" class="">2026</span> Brigid Chepkemoi. All rights reserved. Crafted with care in Kenya.</p>
+</div>
+</div>
+</footer>
+<!-- ==========================================================================
+       EMBEDDED VANILLA JAVASCRIPT
+       ========================================================================== -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Dynamic year in footer
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      // 2. Responsive mobile navigation toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+
+      if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('is-open');
+          mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Close mobile menu when a nav link is clicked
+        const navItems = document.querySelectorAll('.nav-link-item');
+        navItems.forEach(item => {
+          item.addEventListener('click', () => {
+            if (navLinks.classList.contains('is-open')) {
+              navLinks.classList.remove('is-open');
+              mobileBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+      }
+
+      // 3. Subtle navbar elevation on scroll
+      const siteNav = document.querySelector('.site-nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          siteNav.style.boxShadow = '0 6px 20px rgba(74, 44, 63, 0.08)';
+        } else {
+          siteNav.style.boxShadow = 'none';
+        }
+      }, { passive: true });
+    });
+  </script>
+
+
+
+
+</body></html>
